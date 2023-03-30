@@ -84,6 +84,7 @@ jobs:
           context: .
           push: false
           tags: encoder-docker-base-image:action
+          load: true
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
