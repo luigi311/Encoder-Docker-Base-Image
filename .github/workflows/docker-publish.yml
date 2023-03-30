@@ -95,6 +95,7 @@ jobs:
           curl -LO https://media.xiph.org/video/derf/y4m/tt_sif.y4m
           docker run --rm -v ${pwd}:/videos encoder-docker-base-image:action av1an -i /videos/tt_sif.y4m -o /videos/95.mkv -e x265 -v "-p 0 --crf 25" --target-quality 95 
           docker run --rm -v ${pwd}:/videos encoder-docker-base-image:action av1an -i /videos/tt_sif.y4m -o /videos/80.mkv -e x265 -v "-p 0 --crf 25" --target-quality 80 
+          du -h 95.mkv 80.mkv
           # compare the size of the two files to make sure 95.mkv is larger than 80.mkv
           if [ $(stat -c%s "95.mkv") -gt $(stat -c%s "80.mkv") ]; then echo "95.mkv is larger than 80.mkv"; else echo "95.mkv is smaller than 80.mkv"; exit 1; fi
 
