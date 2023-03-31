@@ -27,7 +27,7 @@ RUN yes | yay -Sy --noconfirm lensfun-git comskip pod2man && \
     yes | yay -Scc
 
 #  Use ffmpeg-libfdk_aac since full is currently broken
-RUN yes | yay -Sy --noconfirm ffmpeg-full && \
+RUN yes | yay -Sy --noconfirm ffmpeg-libfdk_aac && \
     yes | yay -Scc
 
 USER root
@@ -43,6 +43,6 @@ ENV LIBVA_DRIVERS_PATH="/usr/lib/x86_64-linux-gnu/dri" \
     DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 # Av1an Dependencies
-RUN pacman -Sy --noconfirm aom vapoursynth ffms2 libvpx mkvtoolnix-cli boost-libs svt-av1 vapoursynth-plugin-lsmashsource vmaf unzip rav1e
+RUN pacman -Sy --noconfirm aom vapoursynth ffms2 libvpx mkvtoolnix-cli svt-av1 vapoursynth-plugin-lsmashsource vmaf unzip rav1e
 
 COPY --from=masterofzen/av1an:master /usr/local/bin/av1an /usr/local/bin/av1an
