@@ -46,3 +46,5 @@ ENV LIBVA_DRIVERS_PATH="/usr/lib/x86_64-linux-gnu/dri" \
 RUN pacman -Sy --noconfirm aom vapoursynth ffms2 libvpx mkvtoolnix-cli svt-av1 vapoursynth-plugin-lsmashsource vmaf unzip rav1e
 
 COPY --from=masterofzen/av1an:master /usr/local/bin/av1an /usr/local/bin/av1an
+
+WORKDIR /
