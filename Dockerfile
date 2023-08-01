@@ -19,10 +19,6 @@ RUN git clone https://aur.archlinux.org/yay.git \
   && cd \
   && rm -rf .cache yay
 
-# Install dotnet
-RUN yes | yay -Sy --noconfirm dotnet-runtime-6.0-bin aspnet-runtime-6.0-bin && \
-    yes | yay -Scc
-
 RUN yes | yay -Sy --noconfirm lensfun-git comskip pod2man && \
     yes | yay -Scc
 
