@@ -1,7 +1,7 @@
 FROM archlinux:base-devel AS base
 
 ENV BUILD_USER=makepkg
-ENV PATH=$PATH:/root/.dotnet/tools:/opt/cuda/bin
+ENV PATH=$PATH:/opt/cuda/bin
 
 RUN sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$(nproc)"/' /etc/makepkg.conf
 RUN pacman-key --init && pacman -Sy --noconfirm archlinux-keyring && pacman -Syu --noconfirm wget dos2unix git libva-intel-driver libva-vdpau-driver libva-utils intel-media-driver libva-intel-driver openssl
