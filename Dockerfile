@@ -22,8 +22,8 @@ RUN git clone https://aur.archlinux.org/yay.git \
 RUN yes | yay -Sy --noconfirm lensfun-git comskip pod2man && \
     yes | yay -Scc
 
-#  Use ffmpeg-libfdk_aac since full is currently broken
-RUN yes | yay -Sy --noconfirm ffmpeg-libfdk_aac && \
+#  Use ffmpeg-nonvidia since full is currently broken
+RUN yes | yay -Sy --noconfirm ffmpeg-nonvidia && \
     yes | yay -Scc
 
 USER root
