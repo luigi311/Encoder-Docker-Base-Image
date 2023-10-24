@@ -19,7 +19,7 @@ RUN git clone https://aur.archlinux.org/yay.git \
   && cd \
   && rm -rf .cache yay
 
-RUN yes | yay -Sy --noconfirm lensfun-git comskip pod2man && \
+RUN yes | yay -Sy --noconfirm lensfun-git comskip pod2man dotnet-runtime-bin aspnet-runtime-bin && \
     yes | yay -Scc
 
 #  Use ffmpeg-libfdk_aac since full is currently broken
