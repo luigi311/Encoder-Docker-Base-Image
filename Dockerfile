@@ -19,12 +19,10 @@ RUN git clone https://aur.archlinux.org/yay.git \
   && cd \
   && rm -rf .cache yay
 
-RUN yes | yay -Sy --noconfirm lensfun-git comskip pod2man && \
-    yes | yay -Scc
+RUN yes | yay -Sy --noconfirm lensfun-git comskip pod2man
 
-#  Use ffmpeg-nonvidia since full is currently broken
-RUN yes | yay -Sy --noconfirm ffmpeg-nonvidia && \
-    yes | yay -Scc
+#  Use ffmpeg-amd-full since full is currently broken
+RUN yes | yay -Sy --noconfirm ffmpeg-amd-full
 
 USER root
 
@@ -42,5 +40,8 @@ ENV LIBVA_DRIVERS_PATH="/usr/lib/x86_64-linux-gnu/dri" \
 RUN pacman -Sy --noconfirm aom vapoursynth ffms2 libvpx mkvtoolnix-cli svt-av1 vapoursynth-plugin-lsmashsource vmaf unzip rav1e
 
 COPY --from=masterofzen/av1an:master /usr/local/bin/av1an /usr/local/bin/av1an
+
+# Extra tools
+RUN pacman -Sy --noconfirm imagemagick inkscape python-pip
 
 WORKDIR /
