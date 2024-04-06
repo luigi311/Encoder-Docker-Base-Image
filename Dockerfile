@@ -4,7 +4,7 @@ ENV BUILD_USER=makepkg
 ENV PATH=$PATH:/opt/cuda/bin
 
 RUN sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$(nproc)"/' /etc/makepkg.conf
-RUN pacman-key --init && pacman -Sy --noconfirm archlinux-keyring && pacman -Syu --noconfirm wget dos2unix git libva-intel-driver libva-vdpau-driver libva-utils intel-media-driver libva-intel-driver openssl
+RUN pacman-key --init && pacman -Sy --noconfirm archlinux-keyring && pacman -Syu --noconfirm tini wget dos2unix git libva-intel-driver libva-vdpau-driver libva-utils intel-media-driver libva-intel-driver openssl
 
 RUN useradd --system --create-home $BUILD_USER \
   && echo "$BUILD_USER ALL=(ALL:ALL) NOPASSWD:/usr/sbin/pacman" > /etc/sudoers.d/$BUILD_USER
