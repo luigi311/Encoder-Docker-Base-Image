@@ -19,7 +19,7 @@ RUN git clone https://aur.archlinux.org/yay.git \
   && cd \
   && rm -rf .cache yay
 
-RUN yes | yay -Sy --noconfirm lensfun-git comskip pod2man tini
+RUN yes | yay -Sy --noconfirm lensfun-git pod2man tini
 
 #  Use ffmpeg-amd-full since full is currently broken
 RUN yes | yay -Sy --noconfirm ffmpeg-amd-full
